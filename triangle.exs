@@ -2,13 +2,13 @@ defmodule Triangle do
   def type(a, b, c) when is_number(a) and is_number(b) and is_number(c) do
     cond do
       equilateral?(a, b, c) ->
-        IO.puts "This triangle is equilateral."
+        "This triangle is equilateral."
       right?(a, b, c) ->
-        IO.puts "This triangle is right."
+        "This triangle is right."
       isosceles?(a, b, c) ->
-        IO.puts "This triangle is isosceles."
+        "This triangle is isosceles."
       true ->
-        IO.puts "This is not a special triangle."
+        "This is not a special triangle."
     end
   end
 
