@@ -1,5 +1,5 @@
 defmodule Triangle do
-  def type(a, b, c) do
+  def type(a, b, c) when is_number(a) and is_number(b) and is_number(c) do
     cond do
       equilateral?(a, b, c) ->
         IO.puts "This triangle is equilateral."
