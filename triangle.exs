@@ -1,15 +1,29 @@
 defmodule Triangle do
   def type(a, b, c) when is_number(a) and is_number(b) and is_number(c) do
-    cond do
-      equilateral?(a, b, c) ->
-        "This triangle is equilateral."
-      right?(a, b, c) ->
-        "This triangle is right."
-      isosceles?(a, b, c) ->
-        "This triangle is isosceles."
-      true ->
-        "This is not a special triangle."
+    if triangle?(a, b, c) do
+      cond do
+        equilateral?(a, b, c) ->
+          "This triangle is equilateral."
+        right?(a, b, c) ->
+          "This triangle is right."
+        isosceles?(a, b, c) ->
+          "This triangle is isosceles."
+        true ->
+          "This is not a special triangle."
+      end
+    else
+      "Not a triangle."
     end
+  end
+
+  defp triangle?(a, b, c) do
+    if a > 0 && b > 0 && c > 0 do
+      cond do
+        a < (b + c) -> true
+        b < (a + c) -> true
+        c < (a + b) -> true
+        true -> false
+      end
   end
 
   defp equilateral?(a, b, c) do
